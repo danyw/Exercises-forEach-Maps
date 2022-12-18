@@ -35,25 +35,26 @@ function passedGrades(studentGrades) {
 console.log("Scores above 50: " + passedGrades(studentGrades) + ".");
 
 //* Join Exercise 1: Names
-const students = ["Paul", "Sam", "John"];
+const students = ["Paul", "Sam", "John", "Ian", "Monica"];
 const studentsJoined = students.join(" ");
 console.log(students);
 console.log(studentsJoined);
 
-// TODO Join Exercise 2: CSV
+//* Join Exercise 2: CSV
+function toCSV(arr) {
+  let csv = arr.join(", ");
+
+  return csv;
+}
+console.log(toCSV(students));
 
 //*  Map Exercise 1: Miles Converter
 const kilometers = [1, 5, 6, 4, 2];
-
+// added toFixed to limit the decimal places to two
 function toMiles(km) {
-  let miles = km.map((x) => x * 0.621371);
+  let miles = km.map((x) => (x * 0.621371).toFixed(2));
   return miles;
 }
-// TODO convert data, reduce decimal places, print inline
-function toMilesFormatter(miles) {
-  miles = miles.map;
-}
-
 console.log(toMiles(kilometers));
 
 //* Map/filter Exercise 2: User input ages
@@ -65,6 +66,26 @@ function filterAge(array) {
 }
 console.log("Filtered array: " + filterAge(inputArray) + ".");
 
-// TODO Filter Exercises: canVote
-// TODO Reduce Exercise 1: Sum
-// TODO Reduce Exercise 2: Product
+//* Filter Exercises: canVote
+const ages = [15, 18, 21, 50, 10, 100];
+
+function canVote(arr) {
+  let agesFiltered = arr.filter((x) => x >= 18);
+  return agesFiltered;
+}
+console.log(canVote(ages));
+
+//* Reduce Exercise 1: Sum
+// use numArray defined earlier
+function sum(arr) {
+  const sumArr = arr.reduce((acc, current) => acc + current, 0);
+  return sumArr;
+}
+console.log(`The sum of the elements of given array is: ${sum(numArray)}.`);
+
+//* Reduce Exercise 2: Product
+function product2(arr) {
+  const productArr = arr.reduce((acc, current) => acc * current, 1);
+  return productArr;
+}
+console.log(`The product of the elements of given array is: ${product2(numArray)}`);
